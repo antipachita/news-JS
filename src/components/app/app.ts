@@ -3,6 +3,7 @@ import { AppView } from '../view/appView';
 
 class App {
   controller: AppController;
+  
   view: AppView;
 
   constructor() {

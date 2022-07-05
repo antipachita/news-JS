@@ -25,7 +25,7 @@ export interface articlecontentResponse {
   totalResults?: number;
 }
 
-export interface sourcearrayResponse {
+export interface SourcearrayResponse {
   sources?: sourcearrayData[];
   status?: string;
 }

@@ -1,9 +1,10 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { articlecontentResponse, sourcearrayResponse } from '../interfaces/interfaces';
+import { articlecontentResponse, SourcearrayResponse } from '../interfaces/interfaces';
 
 export class AppView {
   news: News;
+  
   sources: Sources;
 
   constructor() {
@@ -16,7 +17,7 @@ export class AppView {
     this.news.draw(values);
   }
 
-  drawSources(data: sourcearrayResponse): void {
+  drawSources(data: SourcearrayResponse): void {
     const values = data?.sources ? data?.sources : [];
     this.sources.draw(values);
   }

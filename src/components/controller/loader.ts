@@ -1,5 +1,5 @@
-import { articlecontentResponse, sourcearrayResponse } from '../interfaces/interfaces';
-type callbackPrototype<T> = (data: T) => void;
+import { articlecontentResponse, SourcearrayResponse } from '../interfaces/interfaces';
+type CallbackType<T> = (data: T) => void;
 class Loader {
   baseLink: string;
 
@@ -12,7 +12,7 @@ class Loader {
 
   getResp(
     { endpoint, options = {} }: { endpoint: string; options?: { sources?: string } },
-    callback: callbackPrototype<sourcearrayResponse | articlecontentResponse> = () => {
+    callback: CallbackType<SourcearrayResponse | articlecontentResponse> = () => {
       console.error('No callback for GET response');
     },
   ) {
@@ -42,13 +42,13 @@ class Loader {
   load(
     method: string,
     endpoint: string,
-    callback: callbackPrototype<sourcearrayResponse | articlecontentResponse>,
+    callback: CallbackType<SourcearrayResponse | articlecontentResponse>,
     options: { sources?: string },
   ) {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => (<Response>res).json())
-      .then((data: articlecontentResponse | sourcearrayResponse) => callback(data))
+      .then((data: articlecontentResponse | SourcearrayResponse) => callback(data))
       .catch((err: Error) => console.error(err));
   }
 }

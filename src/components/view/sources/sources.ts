@@ -3,7 +3,6 @@ import { sourcearrayData } from '../../interfaces/interfaces';
 
 class Sources {
   draw(data: sourcearrayData[]) {
-    console.log(data)
     const fragment = document.createDocumentFragment();
     const sourceItemTemp = <HTMLTemplateElement>document.querySelector('#sourceItemTemp');
 

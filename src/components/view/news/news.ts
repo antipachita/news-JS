@@ -4,9 +4,8 @@ import { articlecontentData } from '../../interfaces/interfaces';
 class News {
   draw(data?: articlecontentData[]) {
     if (data) {
-      
       const news = data.length >= 10 ? data.filter((_item: articlecontentData, idx: number): boolean => idx < 10) : data;
-     
+
       const fragment = document.createDocumentFragment();
       const newsItemTemp = <HTMLTemplateElement>document.querySelector('#newsItemTemp');
 
