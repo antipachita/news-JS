@@ -1,9 +1,10 @@
 import Loader from './loader';
+import adress from '../const/url';
 
 class AppLoader extends Loader {
   constructor() {
-    super('https://nodenews.herokuapp.com/', {
-      apiKey: '017ed0b4d1774ecfa6c5a1e72fee8a8c',
+    super(adress.url, {
+      apiKey: adress.apiKey,
     });
   }
 }

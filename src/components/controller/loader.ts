@@ -1,4 +1,4 @@
-import { articlecontentResponse, SourcearrayResponse } from '../interfaces/interfaces';
+import { IarticlecontentResponse, IsourcearrayResponse } from '../interfaces/response.model/response.model';
 type CallbackType<T> = (data: T) => void;
 class Loader {
   baseLink: string;
@@ -12,7 +12,7 @@ class Loader {
 
   getResp(
     { endpoint, options = {} }: { endpoint: string; options?: { sources?: string } },
-    callback: CallbackType<SourcearrayResponse | articlecontentResponse> = () => {
+    callback: CallbackType<IsourcearrayResponse | IarticlecontentResponse> = () => {
       console.error('No callback for GET response');
     },
   ) {
@@ -29,7 +29,7 @@ class Loader {
   }
 
   makeUrl(options: { sources?: string }, endpoint: string): string {
-    const urlOptions = { ...this.options, ...options };
+    const urlOptions: { sources?: string | undefined; apiKey: string; } = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
     Object.keys(urlOptions).forEach((key): void => {
@@ -42,13 +42,13 @@ class Loader {
   load(
     method: string,
     endpoint: string,
-    callback: CallbackType<SourcearrayResponse | articlecontentResponse>,
+    callback: CallbackType<IsourcearrayResponse | IarticlecontentResponse>,
     options: { sources?: string },
   ) {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => (<Response>res).json())
-      .then((data: articlecontentResponse | SourcearrayResponse) => callback(data))
+      .then((data: IarticlecontentResponse | IsourcearrayResponse) => callback(data))
       .catch((err: Error) => console.error(err));
   }
 }

@@ -1,9 +1,9 @@
 import AppLoader from './appLoader';
-import {  articlecontentResponse, SourcearrayResponse } from '../interfaces/interfaces';
+import {  IarticlecontentResponse, IsourcearrayResponse } from '../interfaces/response.model/response.model';
 type CallbackType<T> = (data: T) => void;
 class AppController extends AppLoader {
   
-  getSources(callback: CallbackType<SourcearrayResponse>): void {
+  getSources(callback: CallbackType<IsourcearrayResponse>): void {
     super.getResp(
       {
         endpoint: 'sources',
@@ -12,7 +12,7 @@ class AppController extends AppLoader {
     );
   }
 
-  getNews(e: Event, callback: CallbackType<articlecontentResponse>): void {
+  getNews(e: Event, callback: CallbackType<IarticlecontentResponse>): void {
     let target = e.target as HTMLElement;
     const newsContainer = e.currentTarget as HTMLElement;
 

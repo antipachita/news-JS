@@ -1,4 +1,4 @@
-export interface articlecontentData {
+export interface IarticlecontentData {
   author: string | null;
   content: string | null;
   description: string | null;
@@ -8,8 +8,8 @@ export interface articlecontentData {
   url: string | null;
   urlToImage: string | null;
 }
-
-export interface sourcearrayData {
+  
+export interface IsourcearrayData {
   id: string | null;
   name: string | null;
   description: string | null;
@@ -18,16 +18,3 @@ export interface sourcearrayData {
   language: string | null;
   url: string | null;
 }
-
-export interface articlecontentResponse {
-  articles?: articlecontentData[];
-  status?: string;
-  totalResults?: number;
-}
-
-export interface SourcearrayResponse {
-  sources?: sourcearrayData[];
-  status?: string;
-}
-
-
